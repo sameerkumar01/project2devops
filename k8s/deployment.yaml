@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: my-secure-app
-        image: ameet56/my-secure-app:latest
+        image: sameer797/my-secure-app:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
