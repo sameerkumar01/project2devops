@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-secure-app-deployment
+  labels:
+    app: my-secure-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-secure-app
+  template:
+    metadata:
+      labels:
+        app: my-secure-app
+    spec:
+      containers:
+      - name: my-secure-app
+        image: ameet56/my-secure-app:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        env:
+        - name: API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: my-api-secret
+              key: API_KEY

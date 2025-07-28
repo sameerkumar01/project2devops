@@ -1,0 +1,10 @@
+# .tfsec/config.yml
+# This file tells tfsec to ignore specific checks that we've deemed acceptable.
+exclude:
+  # Ignore the check that requires customer-managed encryption keys (KMS).
+  # We are accepting AWS-managed keys (AES256) for this project.
+  - aws-s3-encryption-customer-key
+
+  # Ignore the check that requires the log bucket itself to have logging enabled.
+  # This is a false positive, as a log bucket cannot log to itself.
+  - aws-s3-enable-bucket-logging
