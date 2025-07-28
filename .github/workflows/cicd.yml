@@ -56,7 +56,7 @@ jobs:
           context: ./app
           file: ./app/Dockerfile
           push: true
-          tags: ameet56/my-secure-app:latest
+          tags: sameer797/my-secure-app:latest
 
   deploy:
     name: Deploy to Kubernetes
